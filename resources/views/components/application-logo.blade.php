@@ -1,0 +1,1 @@
+<img src="{{ asset('images/logo.png') }}" class="w-20 h-w-20 drop-shadow" alt="logo">
