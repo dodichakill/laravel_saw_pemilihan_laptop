@@ -47,7 +47,7 @@ class HitungController extends Controller
         }
 
         $terbobot = [];
-        foreach ($nilais as $key => $value) {
+        foreach ($normal as $key => $value) {
             foreach ($value as $k => $v) {
                 $terbobot[$key][$k] = $v * $kriterias[$k]->bobot;
             }

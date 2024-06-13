@@ -17,7 +17,7 @@
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        id
+                                        Alternatif
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         nama
@@ -73,7 +73,7 @@
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        id
+                                        Alternatif
                                     </th>
                                     @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
@@ -109,7 +109,7 @@
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        id
+                                        Alternatif
                                     </th>
                                     @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
@@ -148,7 +148,7 @@
                                         Rank
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        id
+                                        Alternatif
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Nama
