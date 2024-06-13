@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_alternatif', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_alternatif', 16)->primary();
+            $table->string('nama_alternatif', 255);
             $table->timestamps();
         });
     }

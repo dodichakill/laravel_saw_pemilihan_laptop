@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_kriteria', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_kriteria', 16)->primary();
+            $table->string('nama_kriteria', 255);
+            $table->string('atribut', 16);
+            $table->double('bobot');
             $table->timestamps();
         });
     }

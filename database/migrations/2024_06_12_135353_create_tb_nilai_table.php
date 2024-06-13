@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_nilai', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_nilai');
+            $table->string('id_alternatif', 16);
+            $table->string('id_kriteria', 16);
+            $table->double('nilai');
             $table->timestamps();
         });
     }

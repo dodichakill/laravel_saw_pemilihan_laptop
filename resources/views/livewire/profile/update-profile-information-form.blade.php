@@ -81,12 +81,6 @@ new class extends Component
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        <!-- <div>
-            <x-input-label for="username" :value="__('Username')" />
-            <x-text-input wire:model="username" id="username" name="username" type="text" class="mt-1 block w-full" required autofocus autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('username')" />
-        </div> -->
-
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
