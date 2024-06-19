@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Throwable;
 
 class AlternatifController extends Controller
 {
@@ -21,7 +23,7 @@ class AlternatifController extends Controller
      */
     public function create()
     {
-        //
+        return view('alternatif.create');
     }
 
     /**
@@ -59,8 +61,16 @@ class AlternatifController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alternatif $alternatif)
+
+    public function destroy($id)
     {
-        //
+        try {
+            $alternatif = Alternatif::findOrFail($id);
+            $alternatif->delete();
+            toastr()->success('Berhasil Menghapus Data');
+            return redirect()->route('alternatif.index');
+        } catch (\Exception $e) {
+            dd($e);
+        }
     }
 }

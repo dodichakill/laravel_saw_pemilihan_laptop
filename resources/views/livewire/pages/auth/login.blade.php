@@ -67,6 +67,7 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
 
         <hr class="mt-4">
+
         <div class="mt-4">
             <a href="/auth/google/redirect" type="button" class="text-white bg-blue-500 hover:bg-blue-500/90 focus:ring-4 focus:outline-none focus:ring-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex w-full items-center justify-center dark:focus:ring-blue-500/55 me-2 mb-2">
                 <i class="fab fa-google mr-3"></i>
@@ -85,5 +86,7 @@ new #[Layout('layouts.guest')] class extends Component
             <a class="underline text-sm ms-1 text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}" wire:navigate>
                 {{ __('Daftar Sekarang') }}
             </a>
-        </p @endif </form>
+        </p>
+        @endif
+    </form>
 </div>

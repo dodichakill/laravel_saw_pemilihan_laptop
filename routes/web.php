@@ -6,6 +6,7 @@ use App\Http\Controllers\HitungController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\NilaiController;
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,23 +19,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
-// Auth
-Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
-Route::get('/auth/{provider}/call-back', [ProviderController::class, 'callback']);
 
-// SAW
-Route::resource('/alternatif', AlternatifController::class);
-Route::resource('/kriteria', KriteriaController::class);
-Route::resource('/nilai', NilaiController::class);
-Route::get('/hitung', [HitungController::class, 'index'])->name('hitung.index');
+Route::middleware('guest')->group(function () {
+    Volt::route('', 'pages.auth.login')
+        ->name('login');
+    Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+    Route::get('/auth/{provider}/call-back', [ProviderController::class, 'callback']);
+});
 
-// Dashboard
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // SAW
+    Route::resource('/alternatif', AlternatifController::class);
+    Route::resource('/kriteria', KriteriaController::class);
+    Route::resource('/nilai', NilaiController::class);
+    Route::get('/hitung', [HitungController::class, 'index'])->name('hitung.index');
+
+    // Dashboard
+    Route::view('dashboard', 'dashboard')
+        ->middleware(['auth', 'verified'])
+        ->name('dashboard');
+    Route::view('profile', 'profile')
+        ->middleware(['auth'])
+        ->name('profile');
+});
+
 
 require __DIR__ . '/auth.php';

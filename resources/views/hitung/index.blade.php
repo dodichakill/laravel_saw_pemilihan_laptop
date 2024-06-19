@@ -50,13 +50,13 @@
                                 <tr class="my-2 border-b">
                                     <td colspan="2" class="px-3 py-2 bg-gray-200 my-3 border-b border-white">Min</td>
                                     @foreach ($minmax as $key => $val)
-                                    <td>{{ $val['min'] }}</td>
+                                    <td class="bg-gray-100">{{ $val['min'] }}</td>
                                     @endforeach
                                 </tr>
                                 <tr class="border-b">
                                     <td colspan="2" class="px-3 py-2 bg-gray-200 my-3">Max</td>
                                     @foreach ($minmax as $key => $val)
-                                    <td>{{ $val['max'] }}</td>
+                                    <td class="bg-gray-100">{{ $val['max'] }}</td>
                                     @endforeach
                                 </tr>
                             </tfoot>
