@@ -3,9 +3,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                        {{ __('Data Kriteria') }}
-                    </h2>
+                    <div class="">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                            {{ __('Data Kriteria') }}
+                        </h2>
+                    </div>
 
                     <!-- table -->
                     <div class="relative overflow-x-auto my-3">
@@ -47,7 +49,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <!-- table end -->
                 </div>
             </div>

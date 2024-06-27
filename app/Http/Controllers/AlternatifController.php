@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Throwable;
 
@@ -31,7 +30,16 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $alternatif = new Alternatif();
+            $alternatif->id_alternatif = $request->id;
+            $alternatif->nama_alternatif = $request->nama_alternatif;
+            $alternatif->save();
+            toastr()->success('Berhasil Menambahkan Data');
+            return redirect()->route('alternatif.index');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
@@ -47,7 +55,7 @@ class AlternatifController extends Controller
      */
     public function edit(Alternatif $alternatif)
     {
-        //
+        return view('alternatif.edit', compact('alternatif'));
     }
 
     /**
@@ -55,7 +63,15 @@ class AlternatifController extends Controller
      */
     public function update(Request $request, Alternatif $alternatif)
     {
-        //
+        try {
+            $alternatif->id_alternatif = $request->id;
+            $alternatif->nama_alternatif = $request->nama_alternatif;
+            $alternatif->save();
+            toastr()->success('Berhasil Mengubah Data');
+            return redirect()->route('alternatif.index');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**

@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('tb_alternatif', function (Blueprint $table) {
             $table->string('id_alternatif', 16)->primary();
             $table->string('nama_alternatif', 255);
+            $table->integer('harga', 255);
+            $table->integer('skor_prosesor', 255);
+            $table->integer('ram', 255);
+            $table->integer('penyimpanan', 255);
+            $table->integer('layar', 255);
+            $table->integer('baterai', 255);
             $table->timestamps();
         });
     }

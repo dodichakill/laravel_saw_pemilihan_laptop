@@ -34,6 +34,7 @@ class ProviderController extends Controller
                     'email' => $userSocial->getEmail(),
                     'username' => $userSocial->getNickname(),
                     'provider' => $provider,
+                    'password' => '000',
                     'provider_id' => $userSocial->getId(),
                     'provider_token' => $userSocial->token,
                 ]);

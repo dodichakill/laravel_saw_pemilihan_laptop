@@ -30,17 +30,14 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     // SAW
     Route::resource('/alternatif', AlternatifController::class);
+    Route::get('/kriteria/{id}/edit', [KriteriaController::class, 'edit']);
     Route::resource('/kriteria', KriteriaController::class);
     Route::resource('/nilai', NilaiController::class);
     Route::get('/hitung', [HitungController::class, 'index'])->name('hitung.index');
 
     // Dashboard
-    Route::view('dashboard', 'dashboard')
-        ->middleware(['auth', 'verified'])
-        ->name('dashboard');
-    Route::view('profile', 'profile')
-        ->middleware(['auth'])
-        ->name('profile');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
+    Route::view('profile', 'profile')->name('profile');
 });
 
 

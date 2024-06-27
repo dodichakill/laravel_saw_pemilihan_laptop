@@ -8,9 +8,15 @@ use Livewire\Volt\Component;
 
 new class extends Component
 {
+    public string $pswd = '';
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
+
+    public function mount(): void
+    {
+        $this->pswd = Auth::user()->password;
+    }
 
     /**
      * Update the password for the currently authenticated user.
@@ -39,6 +45,7 @@ new class extends Component
 }; ?>
 
 <section>
+    @if (!$pswd == '000')
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Update Password') }}
@@ -76,4 +83,5 @@ new class extends Component
             </x-action-message>
         </div>
     </form>
+    @endif
 </section>

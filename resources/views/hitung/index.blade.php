@@ -11,6 +11,7 @@
                     <h3 class="font-medium text-base text-gray-600 mt-7 leading-tight">
                         {{ __('Data Nilai') }}
                     </h3>
+
                     <!-- table perhitungan -->
                     <div class="relative overflow-x-auto my-3">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">

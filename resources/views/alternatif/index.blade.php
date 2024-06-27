@@ -8,10 +8,10 @@
                             {{ __('Data Alternatif') }}
                         </h2>
 
-                        <button @:click="{open: true}" class="bg-blue-500 hover:text-white hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center">
+                        <a href="{{ route('alternatif.create') }}" class="bg-blue-500 hover:text-white hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center">
                             <i class="fa-solid fa-plus me-2"></i>
                             Tambah
-                        </button>
+                        </a>
                     </div>
 
                     <!-- table -->
@@ -39,8 +39,8 @@
                                         {{ $alt->nama_alternatif }}
                                     </td>
                                     <td class="flex items-center flex-wrap gap-2 py-4">
-                                        <a href="{{ route('alternatif.edit', $alt->id_alternatif) }}" class="text-white inline-block bg-blue-500 rounded-lg hover:bg-blue-700 px-3 py-2"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</a>
-                                        <form action="{{ route('alternatif.destroy', $alt->id_alternatif) }}" method="post">
+                                        <a href="{{ route('alternatif.edit', $alt->id_alternatif) }}" class="text-white inline-block bg-blue-500 rounded-lg hover:bg-blue-700 px-3 py-2"><i class="fa-solid fa-pen-to-square me-1"></i>Edit</a>
+                                        <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('alternatif.destroy', $alt->id_alternatif) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-white inline-block bg-red-500 rounded-lg hover:bg-red-700 px-3 py-2">
@@ -61,7 +61,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <!-- table end -->
                 </div>
             </div>
