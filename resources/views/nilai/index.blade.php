@@ -8,10 +8,10 @@
                             {{ __('Data Nilai') }}
                         </h2>
 
-                        <button wire:click="$dispatch('openModal',{component: 'add-alternatif'})" class="bg-blue-500 hover:text-white hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center">
+                        <a href="{{route('nilai.create')}}" class="bg-blue-500 hover:text-white hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center">
                             <i class="fa-solid fa-plus me-2"></i>
                             Tambah
-                        </button>
+                        </a>
                     </div>
 
                     <!-- table -->

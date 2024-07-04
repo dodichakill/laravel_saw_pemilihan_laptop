@@ -37,7 +37,7 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('nilai.create');
     }
 
     /**
