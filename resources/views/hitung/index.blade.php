@@ -8,65 +8,90 @@
                     </h2>
                     <hr class="my-3">
 
-                    <h3 class="font-medium text-base text-gray-600 mt-7 leading-tight">
+                    <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
                         {{ __('Data Nilai') }}
                     </h3>
-
-                    <!-- table perhitungan -->
+                    <!-- table nilai -->
                     <div class="relative overflow-x-auto my-3">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Alternatif
+                                        Id Alternatif
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        nama
+                                        Harga <br /> <span class="text-xs text-slate-400">
+                                            (Cost, Bobot: 0.3)
+                                        </span>
                                     </th>
-                                    @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
-                                        {{ $krt->nama_kriteria }} <br />({{ $krt->atribut }}: {{ $krt->bobot }})
+                                        Skor Prosesor <br /> <span class="text-xs text-slate-400">
+                                            (Benefit, Bobot: 0.15)
+                                        </span>
                                     </th>
-                                    @endforeach
+                                    <th scope="col" class="px-6 py-3">
+                                        RAM <br /> <span class="text-xs text-slate-400">
+                                            (Benefit, Bobot: 0.2)
+                                        </span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Penyimpanan <br /> <span class="text-xs text-slate-400">
+                                            (Benefit, Bobot: 0.15)
+                                        </span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ukuran Layar <br /> <span class="text-xs text-slate-400">
+                                            (Benefit, Bobot: 0.1)
+                                        </span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Daya Baterai <br /> <span class="text-xs text-slate-400">
+                                            (Benefit, Bobot: 0.1)
+                                        </span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                @foreach ($nilais as $key => $values)
+                                @foreach ($nilais as $item)
                                 <tr class="bg-white border-b">
                                     <td class="px-6 py-4">
-                                        {{ $key }}
+                                        {{ $item->id_alt }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $alternatifs[$key]->nama_alternatif }}
+                                        {{ $item->harga }}
                                     </td>
-                                    @foreach ($values as $k => $v)
                                     <td class="px-6 py-4">
-                                        {{ $v }}
+                                        {{ $item->skor_prosesor }}
                                     </td>
-                                    @endforeach
+                                    <td class="px-6 py-4">
+                                        {{ $item->ram }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->penyimpanan }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->ukuran_layar }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->daya_baterai }}
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                             <tfoot class="text-center">
                                 <tr class="my-2 border-b">
-                                    <td colspan="2" class="px-3 py-2 bg-gray-200 my-3 border-b border-white">Min</td>
+                                    <td class="px-3 py-2 bg-gray-200 my-3 border-b border-white">Min / Max</td>
                                     @foreach ($minmax as $key => $val)
                                     <td class="bg-gray-100">{{ $val['min'] }}</td>
-                                    @endforeach
-                                </tr>
-                                <tr class="border-b">
-                                    <td colspan="2" class="px-3 py-2 bg-gray-200 my-3">Max</td>
-                                    @foreach ($minmax as $key => $val)
-                                    <td class="bg-gray-100">{{ $val['max'] }}</td>
                                     @endforeach
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
-                    <!-- table perhitungan end -->
+                    <!-- table nilai end -->
 
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
-                        {{ __('Normalisasi') }}
+                        {{ __('Data Normalisasi') }}
                     </h3>
                     <!-- table normalisasi -->
                     <div class="relative overflow-x-auto my-3">
@@ -74,24 +99,34 @@
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Alternatif
+                                        Id Alternatif
                                     </th>
-                                    @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
-                                        {{ $krt->id_kriteria}}
+                                        Harga
                                     </th>
-                                    @endforeach
+                                    <th scope="col" class="px-6 py-3">
+                                        Skor Prosesor
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        RAM
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Penyimpanan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ukuran Layar
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Daya Baterai
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                @foreach ($normal as $key => $values)
+                                @foreach ($normalisasi as $items)
                                 <tr class="bg-white border-b">
+                                    @foreach ($items as $item)
                                     <td class="px-6 py-4">
-                                        {{ $key }}
-                                    </td>
-                                    @foreach ($values as $k => $v)
-                                    <td class="px-6 py-4">
-                                        {{ round($v, 4) }}
+                                        {{ $item }}
                                     </td>
                                     @endforeach
                                 </tr>
@@ -102,32 +137,42 @@
                     <!-- table normalisasi end -->
 
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
-                        {{ __('Terbobot') }}
+                        {{ __('Data Terbobot') }}
                     </h3>
-                    <!-- table terbobot -->
+                    <!-- table Terbobot -->
                     <div class="relative overflow-x-auto my-3">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Alternatif
+                                        Id Alternatif
                                     </th>
-                                    @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
-                                        {{ $krt->id_kriteria}}
+                                        Harga
                                     </th>
-                                    @endforeach
+                                    <th scope="col" class="px-6 py-3">
+                                        Skor Prosesor
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        RAM
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Penyimpanan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ukuran Layar
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Daya Baterai
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                @foreach ($terbobot as $key => $values)
+                                @foreach ($terbobot as $items)
                                 <tr class="bg-white border-b">
+                                    @foreach ($items as $item)
                                     <td class="px-6 py-4">
-                                        {{ $key }}
-                                    </td>
-                                    @foreach ($values as $k => $v)
-                                    <td class="px-6 py-4">
-                                        {{ round($v, 4) }}
+                                        {{ $item }}
                                     </td>
                                     @endforeach
                                 </tr>
@@ -135,51 +180,39 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- table terbobot end -->
+                    <!-- table Terbobot end -->
 
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
-                        {{ __('Perangkingan') }}
+                        {{ __('Hasil Akhir') }}
                     </h3>
-                    <!-- table perangkingan -->
+
+                    <!-- table rank -->
                     <div class="relative overflow-x-auto my-3">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Rank
+                                        Id Alternatif
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Alternatif
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Nama
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Total
+                                        total
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                @foreach ($rank as $key => $value)
+                                @foreach ($ranking as $key => $item)
                                 <tr class="bg-white border-b">
+                                    @foreach ($item as $k => $item)
                                     <td class="px-6 py-4">
-                                        {{ $value }}
+                                        {{ $item }}
                                     </td>
-                                    <td class="px-6 py-4">
-                                        {{ $key }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $alternatifs[$key]->nama_alternatif }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ round($total[$key], 4) }}
-                                    </td>
+                                    @endforeach
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                    <!-- table perangkingan end -->
+                    <!-- table rank end -->
                 </div>
             </div>
         </div>

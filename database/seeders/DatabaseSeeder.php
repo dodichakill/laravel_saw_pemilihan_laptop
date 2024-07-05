@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 class DatabaseSeeder extends Seeder
 {
@@ -76,165 +77,56 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('tb_nilai')->insert([
-            // harga
             [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C01',
-                'nilai' => 5000000,
+                'id' => 1,
+                'id_alt' => 'A01',
+                'harga' => 5000000,
+                'skor_prosesor' => 3230,
+                'ram' => 4,
+                'penyimpanan' => 128,
+                'ukuran_layar' => 13,
+                'daya_baterai' => 52
             ],
             [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C01',
-                'nilai' => 6000000,
+                'id' => 2,
+                'id_alt' => 'A02',
+                'harga' => 6000000,
+                'skor_prosesor' => 4230,
+                'ram' => 6,
+                'penyimpanan' => 256,
+                'ukuran_layar' => 14,
+                'daya_baterai' => 55
             ],
             [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C01',
-                'nilai' => 5500000,
+                'id' => 3,
+                'id_alt' => 'A03',
+                'harga' => 5500000,
+                'skor_prosesor' => 3530,
+                'ram' => 4,
+                'penyimpanan' => 128,
+                'ukuran_layar' => 13,
+                'daya_baterai' => 57
             ],
             [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C01',
-                'nilai' => 7000000,
+                'id' => 4,
+                'id_alt' => 'A04',
+                'harga' => 7000000,
+                'skor_prosesor' => 3930,
+                'ram' => 6,
+                'penyimpanan' => 512,
+                'ukuran_layar' => 13,
+                'daya_baterai' => 60
             ],
             [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C01',
-                'nilai' => 6500000,
-            ],
-            // score prosesor
-            [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C02',
-                'nilai' => 3230,
-            ],
-            [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C02',
-                'nilai' => 4230,
-            ],
-            [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C02',
-                'nilai' => 3530,
-            ],
-            [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C02',
-                'nilai' => 3930,
-            ],
-            [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C02',
-                'nilai' => 4320,
-            ],
-            // ram
-            [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C03',
-                'nilai' => 4,
-            ],
-            [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C03',
-                'nilai' => 6,
-            ],
-            [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C03',
-                'nilai' => 4,
-            ],
-            [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C03',
-                'nilai' => 6,
-            ],
-            [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C03',
-                'nilai' => 8,
-            ],
-            // penyimpanan
-            [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C04',
-                'nilai' => 128,
-            ],
-            [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C04',
-                'nilai' => 256,
-            ],
-            [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C04',
-                'nilai' => 128,
-            ],
-            [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C04',
-                'nilai' => 512,
-            ],
-            [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C04',
-                'nilai' => 256,
-            ],
-            // ukuran layar
-            [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C05',
-                'nilai' => 13,
-            ],
-            [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C05',
-                'nilai' => 14,
-            ],
-            [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C05',
-                'nilai' => 13,
-            ],
-            [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C05',
-                'nilai' => 13,
-            ],
-            [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C05',
-                'nilai' => 14,
-            ],
-            // baterai
-            [
-                'id_alternatif' => 'A001',
-                'id_kriteria' => 'C06',
-                'nilai' => 52,
-            ],
-            [
-                'id_alternatif' => 'A002',
-                'id_kriteria' => 'C06',
-                'nilai' => 55,
-            ],
-            [
-                'id_alternatif' => 'A003',
-                'id_kriteria' => 'C06',
-                'nilai' => 57,
-            ],
-            [
-                'id_alternatif' => 'A004',
-                'id_kriteria' => 'C06',
-                'nilai' => 60,
-            ],
-            [
-                'id_alternatif' => 'A005',
-                'id_kriteria' => 'C06',
-                'nilai' => 62,
+                'id' => 5,
+                'id_alt' => 'A05',
+                'harga' => 6500000,
+                'skor_prosesor' => 4320,
+                'ram' => 8,
+                'penyimpanan' => 256,
+                'ukuran_layar' => 14,
+                'daya_baterai' => 62
             ],
         ]);
-
-        // DB::statement("INSERT INTO tb_nilai SELECT NULL, id_alternatif, id_kriteria, ROUND(1 +RAND() * 4), NULL, NULL FROM tb_alternatif, tb_kriteria");
-
     }
 }

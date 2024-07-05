@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/alternatif', AlternatifController::class);
     Route::get('/kriteria/{id}/edit', [KriteriaController::class, 'edit']);
     Route::resource('/kriteria', KriteriaController::class);
+    Route::put('/nilai', [NilaiController::class, 'update'])->name('nilai.update');
     Route::resource('/nilai', NilaiController::class);
     Route::get('/hitung', [HitungController::class, 'index'])->name('hitung.index');
 

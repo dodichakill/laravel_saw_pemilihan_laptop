@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_nilai', function (Blueprint $table) {
-            $table->id('id_nilai');
-            $table->string('id_alternatif', 16);
-            $table->string('id_kriteria', 16);
-            $table->double('nilai');
+            $table->string('id')->primary()->autoIncrement();
+            $table->string('id_alt')->nullable();
+            $table->integer('harga');
+            $table->integer('skor_prosesor');
+            $table->integer('ram');
+            $table->integer('penyimpanan');
+            $table->integer('ukuran_layar');
+            $table->integer('daya_baterai');
             $table->timestamps();
         });
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use App\Models\Kriteria;
 use App\Models\Nilai;
 use Illuminate\Http\Request;
 
@@ -14,22 +13,8 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        $kriterias = [];
-        foreach (Kriteria::all() as $kriteria) {
-            $kriterias[$kriteria->id_kriteria] = $kriteria;
-        }
-
-        $alternatifs = [];
-        foreach (Alternatif::all() as $alternatif) {
-            $alternatifs[$alternatif->id_alternatif] = $alternatif;
-        }
-
-        $nilais = [];
-        foreach (Nilai::orderBy('id_alternatif')->orderBy('id_kriteria')->get() as $nilai) {
-            $nilais[$nilai->id_alternatif][$nilai->id_kriteria] = $nilai->nilai;
-        }
-
-        return view('nilai.index', compact('kriterias', 'alternatifs', 'nilais'));
+        $nilais = Nilai::all();
+        return view('nilai.index', compact('nilais'));
     }
 
     /**
@@ -37,7 +22,8 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        return view('nilai.create');
+        $alts = Alternatif::all();
+        return view('nilai.create', compact('alts'));
     }
 
     /**
@@ -45,7 +31,22 @@ class NilaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $nilai = new Nilai();
+            $nilai->id = microtime(true);
+            $nilai->id_alt = $request->id_alt;
+            $nilai->harga = $request->harga;
+            $nilai->skor_prosesor = $request->skor_prosesor;
+            $nilai->ram = $request->ram;
+            $nilai->penyimpanan = $request->penyimpanan;
+            $nilai->ukuran_layar = $request->ukuran_layar;
+            $nilai->daya_baterai = $request->baterai;
+            $nilai->save();
+            toastr()->success('Berhasil Menambahkan Data');
+            return redirect()->route('nilai.index');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
@@ -59,24 +60,48 @@ class NilaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Nilai $nilai)
+    public function edit($id)
     {
-        //
+        $alt = Nilai::findOrFail($id);
+        return view('nilai.edit', compact('alt'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Nilai $nilai)
+    public function update(Request $request)
     {
-        //
+        try {
+            $id = $request->id;
+            $nilai = Nilai::findOrFail($id);
+            $nilai->update([
+                'id_alt' => $request->id_alt,
+                'harga' => $request->harga,
+                'skor_prosesor' => $request->skor_prosesor,
+                'ram' => $request->ram,
+                'penyimpanan' => $request->penyimpanan,
+                'ukuran_layar' => $request->ukuran_layar,
+                'daya_baterai' => $request->baterai
+            ]);
+            toastr()->success('Berhasil Mengubah Data');
+            return redirect()->route('nilai.index');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Nilai $nilai)
+    public function destroy($id)
     {
-        //
+        try {
+            $nilai = Nilai::findOrFail($id);
+            $nilai->delete();
+            toastr()->success('Berhasil Menghapus Data');
+            return redirect()->route('nilai.index');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 }

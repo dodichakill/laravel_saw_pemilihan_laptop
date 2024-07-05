@@ -20,38 +20,58 @@
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        id
+                                        id Alt
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        nama
+                                        harga
                                     </th>
-                                    @foreach ($kriterias as $krt)
                                     <th scope="col" class="px-6 py-3">
-                                        {{ $krt->nama_kriteria }}
+                                        skor_prosesor
                                     </th>
-                                    @endforeach
+                                    <th scope="col" class="px-6 py-3">
+                                        ram
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        penyimpanan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        ukuran layar
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Daya Baterai
+                                    </th>
                                     <th scope="col" class="px-6 py-3">
                                         Aksi
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($nilais as $key => $values)
+                                @foreach ($nilais as $item)
                                 <tr class="bg-white border-b">
                                     <td class="px-6 py-4">
-                                        {{ $key }}
+                                        {{ $item->id_alt }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $alternatifs[$key]->nama_alternatif }}
+                                        {{ $item->harga }}
                                     </td>
-                                    @foreach ($values as $k => $v)
                                     <td class="px-6 py-4">
-                                        {{ $v }}
+                                        {{ $item->skor_prosesor }}
                                     </td>
-                                    @endforeach
+                                    <td class="px-6 py-4">
+                                        {{ $item->ram }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->penyimpanan }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->ukuran_layar }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->daya_baterai }}
+                                    </td>
                                     <td class="flex items-center flex-wrap gap-2 py-4">
-                                        <a href="{{ route('nilai.edit', $key) }}" class="text-white inline-block bg-blue-500 rounded-lg hover:bg-blue-700 px-3 py-2"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</a>
-                                        <form action="{{ route('nilai.destroy', $key) }}" method="post">
+                                        <a href="{{ route('nilai.edit', $item->id) }}" class="text-white inline-block bg-blue-500 rounded-lg hover:bg-blue-700 px-3 py-2"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</a>
+                                        <form action="{{ route('nilai.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-white inline-block bg-red-500 rounded-lg hover:bg-red-700 px-3 py-2">
