@@ -65,7 +65,10 @@ class HitungController extends Controller
                 'total' => $total[$key]
             ];
         }
-        // arsort($ranking);
+
+
+        usort($ranking, [self::class, 'sortByTotalDesc']);
+        print_r($ranking);
         $i = 1;
 
         return view('hitung.index', compact('nilais', 'normalisasi', 'minmax', 'terbobot', 'total', 'ranking', 'i'));
@@ -75,6 +78,10 @@ class HitungController extends Controller
         $min = Nilai::min($column);
         $max = Nilai::max($column);
         return $opsi == 1 ? $min : $max;
+    }
+    function sortByTotalDesc($a, $b)
+    {
+        return $b['total'] <=> $a['total']; // <=> for concise comparison
     }
 
     public function bobot(string $kriteria)

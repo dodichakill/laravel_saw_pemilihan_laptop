@@ -137,7 +137,7 @@
                     <!-- table normalisasi end -->
 
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
-                        {{ __('Data Terbobot') }}
+                        {{ __('Data Normalisasi Terbobot') }}
                     </h3>
                     <!-- table Terbobot -->
                     <div class="relative overflow-x-auto my-3">
@@ -183,7 +183,7 @@
                     <!-- table Terbobot end -->
 
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
-                        {{ __('Hasil Akhir') }}
+                        {{ __('Perangkingan') }}
                     </h3>
 
                     <!-- table rank -->
@@ -191,6 +191,9 @@
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ranking
+                                    </th>
                                     <th scope="col" class="px-6 py-3">
                                         Id Alternatif
                                     </th>
@@ -202,6 +205,7 @@
                             <tbody class="text-center">
                                 @foreach ($ranking as $key => $item)
                                 <tr class="bg-white border-b">
+                                    <td>{{ $key+1 }}</td>
                                     @foreach ($item as $k => $item)
                                     <td class="px-6 py-4">
                                         {{ $item }}
