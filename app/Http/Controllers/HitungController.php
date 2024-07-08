@@ -68,7 +68,6 @@ class HitungController extends Controller
 
 
         usort($ranking, [self::class, 'sortByTotalDesc']);
-        print_r($ranking);
         $i = 1;
 
         return view('hitung.index', compact('nilais', 'normalisasi', 'minmax', 'terbobot', 'total', 'ranking', 'i'));
