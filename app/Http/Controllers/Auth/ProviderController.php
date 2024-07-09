@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -26,7 +27,7 @@ class ProviderController extends Controller
 
             if (!$user) {
                 if (User::where('email', $userSocial->email)->exists()) {
-                    return redirect('/login')->withErrors(['form.email' => "email ini sudah terdaftar!"]);
+                    return redirect('/')->withErrors(['form.email' => "email ini sudah terdaftar!"]);
                 }
 
                 $user = User::create([
@@ -44,9 +45,8 @@ class ProviderController extends Controller
             Auth::login($user);
 
             return redirect('/dashboard');
-        } catch (\Throwable $th) {
-            dd('error guys : ', $th->getMessage());
-            // return redirect('/login');
+        } catch (Exception $th) {
+            return redirect('/')->withErrors(['form.email' => $th->getMessage()]);
         }
     }
 }
