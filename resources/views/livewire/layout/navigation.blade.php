@@ -49,11 +49,9 @@ new class extends Component
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden md:flex items-center gap-3">
-                <x-nav-link :href="route('profile')" wire:navigate class="text-white hover:border-none hover:text-blue-800"><i class="fa-solid fa-user p-3 bg-blue-400 shadow rounded-lg"></i></x-nav-link>
-                <button wire:click="logout" class="w-full text-start hover:scale-95">
-                    <i class="fa-solid fa-right-from-bracket text-white p-3 hover:text-red-800 bg-red-400 shadow rounded-lg"></i>
-                </button>
+            <div class="hidden sm:flex items-center gap-3">
+                <x-nav-link :href="route('profile')" wire:navigate class="text-blue-600 hover:border-none hover:text-blue-800 p-3 bg-blue-400 shadow rounded-lg"><i class="fa-solid fa-user"></i></x-nav-link>
+                <button wire:click="logout" class="w-full text-start hover:scale-95 text-red-700 px-3 py-2 bg-red-300">Logout</button>
             </div>
 
             <!-- Hamburger -->
