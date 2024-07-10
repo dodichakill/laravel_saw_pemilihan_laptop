@@ -46,7 +46,7 @@ class ProviderController extends Controller
 
             return redirect('/dashboard');
         } catch (Exception $th) {
-            return redirect('/')->withErrors(['form.email' => $th->getMessage()]);
+            return redirect('/')->withErrors(['form.email' => 'error menghubungkan akun. ' . $th->getMessage()]);
         }
     }
 }

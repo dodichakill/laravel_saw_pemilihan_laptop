@@ -66,11 +66,63 @@ class HitungController extends Controller
             ];
         }
 
-
+        // sorting berdasarkan nilai total terbesar
         usort($ranking, [self::class, 'sortByTotalDesc']);
         $i = 1;
 
         return view('hitung.index', compact('nilais', 'normalisasi', 'minmax', 'terbobot', 'total', 'ranking', 'i'));
+    }
+    public function index2()
+    {
+        $nilais = Nilai::all();
+
+        // normalisasi
+        $normalisasi = [];
+        foreach ($nilais as $key => $value) {
+
+            $n_harga = $this->minMax('harga', 1) / $value->harga;
+            $n_skor_prosesor = $value->skor_prosesor / $this->minMax('skor_prosesor', 2);
+            $n_penyimpanan = $value->penyimpanan / $this->minMax('penyimpanan', 2);
+            $n_ram = $value->ram / $this->minMax('ram', 2);
+            $n_ukuran_layar = $value->ukuran_layar / $this->minMax('ukuran_layar', 2);
+            $n_daya_baterai = $value->daya_baterai / $this->minMax('daya_baterai', 2);
+
+            $normalisasi[$key] = [
+                'id' => $value->id_alt,
+                'harga' => $n_harga,
+                'skor_prosesor' => $n_skor_prosesor,
+                'ram' => $n_ram,
+                'penyimpanan' => $n_penyimpanan,
+                'ukuran_layar' => $n_ukuran_layar,
+                'daya_baterai' => $n_daya_baterai
+            ];
+        }
+
+        // min max
+        $minmax = [];
+        $minmax['harga']['min'] = 'min = ' . $this->minMax('harga', 1);
+        $minmax['skor_prosesor']['min'] = 'max = ' . $this->minMax('skor_prosesor', 2);
+        $minmax['ram']['min'] = 'max = ' . $this->minMax('ram', 2);
+        $minmax['penyimpanan']['min'] = 'max = ' . $this->minMax('penyimpanan', 2);
+        $minmax['ukuran_layar']['min'] = 'max = ' . $this->minMax('ukuran_layar', 2);
+        $minmax['daya_baterai']['min'] = 'max = ' . $this->minMax('daya_baterai', 2);
+
+        // rangking
+        $total = [];
+        $ranking = [];
+        foreach ($normalisasi as $key => $value) {
+            $total[$key] = $value['harga'] + $value['skor_prosesor'] + $value['ram'] + $value['penyimpanan'] + $value['ukuran_layar'] + $value['daya_baterai'];
+            $ranking[$key] = [
+                'id' => $value['id'],
+                'total' => $total[$key]
+            ];
+        }
+
+        // sorting berdasarkan nilai total terbesar
+        usort($ranking, [self::class, 'sortByTotalDesc']);
+        $i = 1;
+
+        return view('hitung.index2', compact('nilais', 'normalisasi', 'minmax', 'total', 'ranking', 'i'));
     }
     public function minMax(string $column, int $opsi)
     {

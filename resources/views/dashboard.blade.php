@@ -32,14 +32,14 @@
                                     <i class="fa-solid text-blue-600 fa-clipboard-check scale-75"></i>
                                 </span>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-700">Halaman Kriteria</h3>
-                                <p class="mb-4 text-base font-normal text-gray-500">Halaman Kriteria adalah halaman yang perlu kamu buka untuk urutan kedua. di halaman ini kamu bisa mengelola semua data alternatif yang nantinya akan digunakan dalam perhitungan SAW pemilihan laptop yang berada di halaman Hitung SAW</p>
+                                <p class="mb-4 text-base font-normal text-gray-500">Halaman Kriteria adalah halaman yang perlu kamu buka untuk urutan kedua. di halaman ini kamu bisa melihat semua data kriteria yang nantinya akan digunakan dalam perhitungan SAW pemilihan laptop yang berada di halaman Hitung SAW</p>
                             </li>
                             <li class="mb-5 ms-6">
                                 <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">
                                     <i class="fa-solid text-blue-600 fa-clipboard-list scale-75"></i>
                                 </span>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-700">Halaman Nilai</h3>
-                                <p class="mb-4 text-base font-normal text-gray-500">Halaman Nilai adalah halaman yang perlu kamu buka untuk urutan kedua. di halaman ini kamu bisa mengelola semua data nilai, data nilai yaitu data yang saling terkait antara alternatif dan kriteria yang bisa kita beri nilai untuk nantinya akan digunakan dalam perhitungan SAW pemilihan laptop yang berada di halaman Hitung SAW</p>
+                                <p class="mb-4 text-base font-normal text-gray-500">Halaman Nilai adalah halaman yang perlu kamu buka untuk urutan ketiga. di halaman ini kamu bisa mengelola semua data nilai, data nilai yaitu data yang saling terkait antara alternatif dan kriteria yang bisa kita beri nilai untuk nantinya akan digunakan dalam perhitungan SAW pemilihan laptop yang berada di halaman Hitung SAW</p>
                             </li>
                             <li class="mb-5 ms-6">
                                 <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white">

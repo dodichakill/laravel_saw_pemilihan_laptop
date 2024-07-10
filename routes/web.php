@@ -35,6 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/nilai', [NilaiController::class, 'update'])->name('nilai.update');
     Route::resource('/nilai', NilaiController::class);
     Route::get('/hitung', [HitungController::class, 'index'])->name('hitung.index');
+    Route::get('/hitung2', [HitungController::class, 'index2'])->name('hitung.index2');
 
     // Dashboard
     Route::view('dashboard', 'dashboard')->name('dashboard');
