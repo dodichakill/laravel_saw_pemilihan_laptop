@@ -139,6 +139,7 @@
                     <h3 class="font-medium text-base text-gray-600 leading-tight mt-7">
                         {{ __('Data Normalisasi Terbobot') }}
                     </h3>
+
                     <!-- table Terbobot -->
                     <div class="relative overflow-x-auto my-3">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
@@ -187,7 +188,7 @@
                     </h3>
 
                     <!-- table rank -->
-                    <div class="relative overflow-x-auto my-3">
+                    <div class="relative overflow-x-auto mt-3 mb-5">
                         <table class="w-full text-sm text-center rtl:text-right text-gray-500">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
@@ -217,6 +218,8 @@
                         </table>
                     </div>
                     <!-- table rank end -->
+
+                    <a href="https://docs.google.com/spreadsheets/d/18Kab6C9Z4JuxlH20CnuM9qNXwFgTLXdn18t-se6mRSc/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="shadow cursor-pointer px-3 py-2 rounded bg-blue-200 my-5"> <i class="fa fa-eye me-2"></i> Lihat Spreadsheet SAW Pemilihan Laptop</a>
                 </div>
             </div>
         </div>

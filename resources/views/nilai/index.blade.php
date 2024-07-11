@@ -1,4 +1,10 @@
 <x-app-layout>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css" />
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -16,7 +22,7 @@
 
                     <!-- table -->
                     <div class="relative overflow-x-auto my-3">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500" id="tblNilai">
                             <thead class="text-xs text-gray-700 capitalize bg-gray-200">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
@@ -91,4 +97,7 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#tblNilai').DataTable();
+    </script>
 </x-app-layout>
