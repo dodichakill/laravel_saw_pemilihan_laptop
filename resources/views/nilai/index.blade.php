@@ -77,7 +77,7 @@
                                     </td>
                                     <td class="flex items-center flex-wrap gap-2 py-4">
                                         <a href="{{ route('nilai.edit', $item->id) }}" class="text-white inline-block bg-blue-500 rounded-lg hover:bg-blue-700 px-3 py-2"><i class="fa-solid fa-pen-to-square me-1"></i> Edit</a>
-                                        <form action="{{ route('nilai.destroy', $item->id) }}" method="post">
+                                        <form onsubmit="return confirm('Apakah anda yakin?')" action="{{ route('nilai.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-white inline-block bg-red-500 rounded-lg hover:bg-red-700 px-3 py-2">
